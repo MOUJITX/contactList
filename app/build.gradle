@@ -3,11 +3,11 @@ plugins {
 }
 
 android {
-    namespace 'com.moujitx.txl'
+    namespace 'com.moujitx.contactlist'
     compileSdk 33
 
     defaultConfig {
-        applicationId "com.moujitx.txl"
+        applicationId "com.moujitx.contactlist"
         minSdk 29
         targetSdk 33
         versionCode 1

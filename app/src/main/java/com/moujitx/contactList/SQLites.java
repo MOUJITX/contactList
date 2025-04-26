@@ -1,4 +1,4 @@
-package com.moujitx.txl;
+package com.moujitx.contactlist;
 
 import android.content.Context;
 import android.database.sqlite.SQLiteDatabase;
@@ -8,6 +8,7 @@ public class SQLites extends SQLiteOpenHelper {
     public SQLites(Context context) {
         super(context, "myDB.db", null, 1);
     }
+
     @Override
     public void onCreate(SQLiteDatabase db) {
         db.execSQL("CREATE TABLE information(" +
@@ -16,6 +17,7 @@ public class SQLites extends SQLiteOpenHelper {
                 "phone VARCHAR(20)," +
                 "rgroup VARCHAR(20))");
     }
+
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
     }

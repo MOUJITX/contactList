@@ -1,4 +1,4 @@
-package com.moujitx.txl;
+package com.moujitx.contactlist;
 
 import android.annotation.SuppressLint;
 import android.content.ContentValues;
@@ -30,7 +30,7 @@ public class MainActivity extends AppCompatActivity implements
         View.OnClickListener {
     SQLites sqLites;
     private EditText et_info;
-    private Button btn_add,btn_query;
+    private Button btn_add, btn_query;
 
     public class BookInfo {
         public Integer _id;
@@ -38,8 +38,9 @@ public class MainActivity extends AppCompatActivity implements
         public String phone;
         public String group;
     }
+
     RecyclerView mRecyclerView;
-    MyAdapter mMyAdapter ;
+    MyAdapter mMyAdapter;
     List<BookInfo> bookInfos = new ArrayList<>();
 
     @Override
@@ -58,14 +59,15 @@ public class MainActivity extends AppCompatActivity implements
         SQLiteDatabase db;
         db = sqLites.getReadableDatabase();
 
-        String sql = "select * from information where name LIKE '%" + info + "%' or phone LIKE '%" + info + "%' or rgroup LIKE '%" + info + "%'";
-        Cursor cursor=db.rawQuery(sql,null);
+        String sql = "select * from information where name LIKE '%" + info + "%' or phone LIKE '%" + info
+                + "%' or rgroup LIKE '%" + info + "%'";
+        Cursor cursor = db.rawQuery(sql, null);
 
         if (cursor.getCount() == 0) {
             AlertDialog dataNull = new AlertDialog.Builder(this)
-                    .setTitle("查询失败")//标题
-                    .setMessage("根据关键字查询结果为空")//内容
-                    .setIcon(R.mipmap.ic_launcher_round)//图标
+                    .setTitle("查询失败")// 标题
+                    .setMessage("根据关键字查询结果为空")// 内容
+                    .setIcon(R.mipmap.ic_launcher_round)// 图标
                     .setPositiveButton("确定", new DialogInterface.OnClickListener() {
                         @Override
                         public void onClick(DialogInterface dialog, int which) {
@@ -134,14 +136,14 @@ public class MainActivity extends AppCompatActivity implements
     }
 
     private void gotoChange(Integer id) {
-        Intent intentInfo = new Intent(this,Manage.class);
-        intentInfo.putExtra("type","change");
-        intentInfo.putExtra("id",String.valueOf(id));
+        Intent intentInfo = new Intent(this, Manage.class);
+        intentInfo.putExtra("type", "change");
+        intentInfo.putExtra("id", String.valueOf(id));
         startActivity(intentInfo);
     }
 
     class MyViewHoder extends RecyclerView.ViewHolder {
-        TextView tv_showName,tv_showPhone,tv_showGroup;
+        TextView tv_showName, tv_showPhone, tv_showGroup;
         ConstraintLayout listItem;
 
         public MyViewHoder(@NonNull View itemView) {
@@ -167,8 +169,8 @@ public class MainActivity extends AppCompatActivity implements
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_add:
-                Intent intent = new Intent(this,Manage.class);
-                intent.putExtra("type","add");
+                Intent intent = new Intent(this, Manage.class);
+                intent.putExtra("type", "add");
                 startActivity(intent);
                 break;
             case R.id.btn_query:

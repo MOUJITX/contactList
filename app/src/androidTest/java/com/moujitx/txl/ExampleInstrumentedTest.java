@@ -1,4 +1,4 @@
-package com.moujitx.txl;
+package com.moujitx.contactlist;
 
 import android.content.Context;
 
@@ -21,6 +21,6 @@ public class ExampleInstrumentedTest {
     public void useAppContext() {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
-        assertEquals("com.moujitx.txl", appContext.getPackageName());
+        assertEquals("com.moujitx.contactlist", appContext.getPackageName());
     }
 }
